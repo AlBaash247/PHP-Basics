@@ -22,30 +22,30 @@ $jsonArrayOfObjects = '[{"name":"Ahmed"}, {"name":"Saaed"}, {"name":"Saif"} ]';
 
 //2.1 json_decode()
 echo "<br><br>";
-$decodedObject = json_decode($basicJsonObject, false);
-echo "name : ".$decodedObject->name;
+$decodedObject = json_decode($basicJsonObject);
+echo "name: ".$decodedObject->name;
 echo "<br>";
 print_r($decodedObject);
 
 
 echo "<br><br>";
-$decodedArray = json_decode($basicJsonArray, false);
-echo "first item ::".$decodedArray[0];
-echo "<br> all items: ";
-print_r($decodedArray) ;
+$decodedArray = json_decode($basicJsonArray);
+echo "first item: ".$decodedArray[0];
+echo "<br>";
+print_r($decodedArray);
 
 
 echo "<br><br>";
-$decodedObjectWithArray = json_decode($jsonObjectWithArray, false);
-echo "scores : ".implode(", ",$decodedObjectWithArray->scores);
-echo "<br>";
+$decodedObjectWithArray = json_decode($jsonObjectWithArray);
+echo "scores: ".implode(", ", $decodedObjectWithArray->scores);
+echo "<br> all items: ";
 print_r($decodedObjectWithArray);
 
 echo "<br><br>";
-$decodedArrayOfObjects = json_decode($jsonArrayOfObjects, false);
+$decodedArrayOfObjects = json_decode($jsonArrayOfObjects);
 echo "second item value :".$decodedArrayOfObjects[1]->name;
 echo "<br> all items: ";
-print_r($decodedArrayOfObjects) ;
+print_r($decodedArrayOfObjects);
 
 
 //2.2 json_encode() 
@@ -53,10 +53,12 @@ echo "<br><br>";
 $email = new stdClass();
 $email->sender = "AlBaash247";
 $email->receiver = "John Wick";
-$email->body = "your next target is :<attachment>~!";
+$email->body = "your next target is: <attachment>";
 $email->attachment = range(7,14);
 
-$encodedEmail = json_encode($email);
 echo "$email->receiver";
-echo "<br>$encodedEmail";
+
+$encodedEmail = json_encode($email);
+echo "<br> $encodedEmail";
+
 
